@@ -32,7 +32,7 @@ public class Init {
 		 * 
 		 * }
 		 */
-		
+		//comentario
 		connection_bd cb = new connection_bd();
 		Connection conOracle = cb.connection();
 		Statement stmt = conOracle.createStatement();
