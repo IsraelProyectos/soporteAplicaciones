@@ -57,7 +57,7 @@ body {
 <body style="background-color: #fcfce3">
 	<div id="header1" style="text-align: center">
 		<div style="background-color: #333">
-
+			<!-- cambio -->
 			<form method="post">
 				<br> <br>
 				<button formaction="listar" onClick="barraBusqueda()" type="submit"
