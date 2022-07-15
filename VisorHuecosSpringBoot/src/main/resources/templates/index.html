@@ -1,0 +1,147 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Getting Started: Serving Web Content</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<!-- jQuery library -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- Popper JS -->
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<script type="text/javascript" th:src="@{/js/javascript.js}"></script>
+<style type="text/css">
+body {
+	background-color: #696969;
+}
+
+#header1 {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	font-size: 20px;
+	color: #FFFFFF;
+}
+
+#header2 {
+	position: fixed;
+	width: 100%;
+}
+
+#content {
+	width: 100%;
+}
+
+.cuadradoNaranja {
+	width: 0.625em;
+	background-color: orange;
+}
+
+.cuadradoRojo {
+	width: 0.625em;
+	background-color: #E53131;
+}
+
+.descriptoresCorrectos {
+	border: 2px solid black; 
+	text-align: center; 
+	color:black; 
+	font-size: 0.625rem; 
+	background-color: #DCDCDC;
+}
+
+.descriptoresIncorrectos {
+	border: 2px solid black; 
+	text-align: center; 
+	color:black; 
+	font-size: 0.625rem; 
+	background-color: #E53131;
+}
+</style>
+</head>
+<body style="background-color: #fcfce3">
+
+	<div id="header1" style="text-align: center">
+		<div style="background-color: #333">
+			<form th:action="@{/user/listar}" th:object="${usuario}" method="post">
+				<fieldset>
+					<br> <br>
+					<button onClick="barraBusqueda('funda')" type="submit" class="btn btn-success" name="esquema"
+						value="funda">Visor huecos fundamenta</button>
+					<button onClick="barraBusqueda('cotiz')" type="submit" class="btn btn-success" name="esquema"
+						value="cotiz">Visor huecos cotizaciones</button>
+					<br> <br>
+				</fieldset>
+			</form>
+		</div>
+		<!-- mostramos el titulo de que esquema estamos mostrando los datos-->
+
+		<div th:with="esquema=${esquema}"></div>
+		<div style="background-color: #fcfce3;">
+			<table style="margin: 0 auto;">
+				<tr>
+					<td class="cuadradoNaranja" style="font-size: 0.67em"></td>
+					<td
+						style="align-items: center; font-weight: bold; font-family: cursive; color: black; font-size: 0.67em; background-color: fcfce3">Fin
+						de semana&nbsp;&nbsp;&nbsp;&nbsp;</td>
+					<td
+						style="align-items: center; font-weight: bold; font-family: cursive; color: black; font-size: 0.67em; background-color: fcfce3"><span id="esquema_escogido"
+						th:text="${esquema} ?: 'SIN DATOS A MOSTRAR'"></span></td>
+					<td
+						style="align-items: center; font-weight: bold; font-family: cursive; color: black; font-size: 0.67em; background-color: fcfce3">&nbsp;&nbsp;&nbsp;&nbsp;Faltan
+						periodos</td>
+					<td class="cuadradoRojo" style="font-size: 0.67em"></td>
+				</tr>
+				<tr>
+					<td
+						style="font-weight: bold; font-family: cursive; color: black; font-size: 0.67em; background-color: #fcfce3"><span><br><br></span></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<br><br><br><br><br><br><br><br>
+	<div id="divBarra" style="width:100%">
+	</div>
+	<div th:if="${mostrarDatos eq 1}" id="header2">
+		<table style="margin: 0 auto;">
+			<tr>
+				<td style="border: 2px solid black; color: white; font-size: 0.450rem; background-color: green">DESCRIPTOR</td>
+				<th:block th:each="columna, iterstat: ${columnas}">
+					<td th:if="${columna.getDayOfWeek().toString() eq 'SATURDAY'} or ${columna.getDayOfWeek().toString() eq 'SUNDAY'}" th:text="${#temporals.format(columna, 'dd-MMM')}" th:id="|td${iterstat.index}|" style="border: 2px solid black; color: white; font-size: 0.550em; background-color: orange"></td>
+					<td th:unless="${columna.getDayOfWeek().toString() eq 'SATURDAY'} or ${columna.getDayOfWeek().toString() eq 'SUNDAY'}" th:text="${#temporals.format(columna, 'dd-MMM')}" th:id="|td${iterstat.index}|" style="border: 2px solid black; color: white; font-size: 0.550rem; background-color: green"></td>
+				</th:block>			
+			</tr>
+		</table>
+	</div>
+	<div th:if="${mostrarDatos eq 1}" id="content">
+		<table style="margin: 0 auto;">
+			<tr>
+				<td style="border: 2px solid black; color: white; font-size: 0.450rem; background-color: green">DESCRIPTOR</td>
+				<th:block th:each="columna, iterstat: ${columnas}">
+					<td th:if="${columna.getDayOfWeek().toString() eq 'SATURDAY'} or ${columna.getDayOfWeek().toString() eq 'SUNDAY'}" th:text="${#temporals.format(columna, 'dd-MMM')}" th:id="|td${iterstat.index}|" style="border: 2px solid black; color: white; font-size: 0.550em; background-color: orange"></td>
+					<td th:unless="${columna.getDayOfWeek().toString() eq 'SATURDAY'} or ${columna.getDayOfWeek().toString() eq 'SUNDAY'}" th:text="${#temporals.format(columna, 'dd-MMM')}" th:id="|td${iterstat.index}|" style="border: 2px solid black; color: white; font-size: 0.550rem; background-color: green"></td>
+				</th:block>			
+			</tr>
+			<th:block th:each="descriptores : ${descriptores}">
+				<tr>
+					<td th:text="${descriptores.key}" style="border: 2px solid black; text-align: center; color:black; font-size: 0.625rem; background-color: green;"></td>
+						<th:block th:each="columna, iterstat: ${columnas}">
+							<th:block th:each="fechas : ${descriptores.value}">
+								<th:block th:each="valorColor : ${fechas.value}">
+									<td th:if="${columna eq fechas.key} and ${valorColor.value eq '#DCDCDC'}" th:id="|td${iterstat.index}|" th:text="${valorColor.key}" class="descriptoresCorrectos"></td>
+									<td th:if="${columna eq fechas.key} and ${valorColor.value eq '#E53131'}" th:id="|td${iterstat.index}|" th:text="${valorColor.key}" class="descriptoresIncorrectos"></td>
+								</th:block>
+							</th:block>
+					</th:block>
+				</tr>
+			</th:block>
+		</table>
+		<br><br><br><br><br><br><br>
+	</div>
+</body>
+</html>

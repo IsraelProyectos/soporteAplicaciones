@@ -1,0 +1,1 @@
+si da errores de org.sprinboot darle a maven clean, clic derecho en el proyecto/maven/maven clean
