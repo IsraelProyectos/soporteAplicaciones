@@ -22,3 +22,10 @@ function llenarBarra(esquema) {
 		}
     },1000)
 }
+
+$(document).ready(function() {
+    $("#cerrar").click(function(){
+        alert("button");
+    }); 
+});
+

@@ -21,6 +21,14 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/javascript.js"></script>
+<script type="text/javascript">
+	$(window).on('load', function() {
+		var my_js_data = '<c:out value="${primero}"/>';
+		if (my_js_data) {
+			$('#anadirBorrarDescriptor').modal('show');
+		}
+	});
+</script>
 <style type="text/css">
 body {
 	background-color: #696969;
@@ -60,8 +68,8 @@ body {
 			<!-- cambio -->
 			<form method="post">
 				<br> <br>
-				<button formaction="listar" onClick="barraBusqueda()" type="submit"
-					name="esquema" value="funda" class="btn btn-primary">Añadir/Borrar
+				<button type="button" class="btn btn-primary" data-toggle="modal"
+					data-target="#anadirBorrarDescriptor">Añadir/Borrar
 					descriptor</button>
 				<button formaction="listar" onClick="barraBusqueda('funda')"
 					type="submit" name="esquema" value="funda" class="btn btn-success">Críticos
@@ -69,8 +77,10 @@ body {
 				<button formaction="listar" onClick="barraBusqueda('cotiz')"
 					type="submit" name="esquema" value="cotiz" class="btn btn-success">Críticos
 					de cotizaciones</button>
-				<button formtarget="_blank" formaction="mostrar" type="submit" class="btn btn-primary">Extraer
-					datos para mail</button>
+				<!-- <button formtarget="_blank" formaction="mostrar" type="submit"
+					class="btn btn-primary">Extraer datos para mail</button> -->
+				<button type="button" class="btn btn-primary" data-toggle="modal"
+					data-target="#extraerDatos">Extraer datos para mail</button>
 				<br> <br>
 			</form>
 		</div>
@@ -102,7 +112,7 @@ body {
 					<td
 						style="font-weight: bold; font-family: cursive; color: black; font-size: 0.625em; background-color: #fcfce3"><span
 						id="esquema_escogido"><c:out value="${esquema}" /></span><br>
-					<br></td>
+						<br></td>
 				</tr>
 			</table>
 		</div>
@@ -195,6 +205,68 @@ body {
 			</table>
 		</div>
 	</c:if>
+	<div class="modal fade" id="anadirBorrarDescriptor"
+		data-backdrop="static" data-keyboard="false">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="anadirBorrarDescriptor">Añadir/Borrar
+						descriptor</h5>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<form>
+						<div class="form-group">
+							<input type="text" placeholder="Escoge el número de descriptor"
+								class="form-control" name="descriptor">
+						</div>
+						<div class="form-group">
+							<select class="form-control" name="diaCarga">
+								<option disabled selected>Selecciona el día de carga</option>
+								<option>Fundamenta D-1</option>
+								<option>Fundamenta D-2</option>
+								<option>Cotiz D-1</option>
+								<option>Cotiz D-2</option>
+								<option>Cotiz D</option>
+								<option>Cotiz D+1</option>
+							</select>
+						</div>
+						<button type="submit" formaction="borrarVariables" class="btn btn-secondary">Cerrar</button>
+						<button type="submit" formmethod="post"
+							formaction="anadir_borrar_descriptor" class="btn btn-primary">Guardar
+							descriptor</button>
+						<button type="submit" class="btn btn-danger">Borrar
+							descriptor</button>
+					</form>
+				</div>
+				<div style="color: red;">
+					<c:out value="${mensajeIntroduccion}" />
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="extraerDatos"
+		data-backdrop="static" data-keyboard="false">
+		<div class="modal-dialog" style="max-width: 80% !important;">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="extraerDatos">Datos descriptores</h5>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<c:forEach var="texto" items="${txt}">
+						<c:out value="${texto}" /><br><br>
+					</c:forEach>
+				</div>
+			</div>
+		</div>
+	</div>
 	<br>
 	<br>
 	<br>
