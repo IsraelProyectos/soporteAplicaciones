@@ -250,10 +250,13 @@ body {
 	</div>
 	<div class="modal fade" id="extraerDatos"
 		data-backdrop="static" data-keyboard="false">
-		<div class="modal-dialog" style="max-width: 80% !important;">
+		<div class="modal-dialog" style="max-width: 70% !important;">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="extraerDatos">Datos descriptores</h5>
+					<h5 class="modal-title" id="extraerDatos">Mail de descriptores</h5>
+					<button type="button" data-dismiss="modal" class="btn btn-secondary">Cerrar</button>
+					<br>
+					<button type="submit" class="btn btn-success">Copiar al portapapeles</button>
 					<button type="button" class="close" data-dismiss="modal"
 						aria-label="Close">
 						<span aria-hidden="true">&times;</span>
