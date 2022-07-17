@@ -185,7 +185,7 @@ body {
 									style="border: 2px solid black; color: black; font-size: 0.74rem; background-color: #DCDCDC"><c:out
 										value="${descriptor.nomPais}" /></td>
 								<td
-									style="border: 2px solid black; color: black; font-size: 0.74rem; background-color: #DCDCDC"><c:out
+									style="border: 2px solid black; color: black; font-size: 0.70rem; background-color: #DCDCDC"><c:out
 										value="${descriptor.nomOrigen}" /></td>
 								<td
 									style="border: 2px solid black; color: black; font-size: 0.74rem; background-color: #DCDCDC"><c:out

@@ -63,13 +63,6 @@ public class DescriptoresCriticosController {
 
 	}
 	
-	@RequestMapping(value="/mostrar", method = RequestMethod.POST)
-	public String mostrarTXT(Model model) {
-		LlenarTXT ltxt = new LlenarTXT();
-		model.addAttribute("txt", ltxt.mostrarTXT());
-		return "index";
-	}
-	
 	@RequestMapping(value="/anadir_borrar_descriptor", method = RequestMethod.POST)
 	public String ABdescri(@RequestParam("descriptor") String descriptor, @RequestParam(name="diaCarga", required = false, defaultValue = "vacio") String diaCarga, Model model) {
 		if (!descriptor.equals("") || diaCarga.equals("")) {
