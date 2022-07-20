@@ -8,5 +8,30 @@
     "name": "datos.descriptoresCotizDDiarios",
     "type": "java.lang.String",
     "description": "A description for 'datos.descriptoresCotizDDiarios'"
+  },
+  {
+    "name": "datos.descriptoresCotizDmenos1Laborables",
+    "type": "java.lang.String",
+    "description": "A description for 'datos.descriptoresCotizDmenos1Laborables'"
+  },
+  {
+    "name": "datos.descriptoresFundaD1",
+    "type": "java.lang.String",
+    "description": "A description for 'datos.descriptoresFundaD1'"
+  },
+  {
+    "name": "datos.descriptoresFundaD2",
+    "type": "java.lang.String",
+    "description": "A description for 'datos.descriptoresFundaD2'"
+  },
+  {
+    "name": "datos.descriptoresCotizDmenos1Diarios",
+    "type": "java.lang.String",
+    "description": "A description for 'datos.descriptoresCotizDmenos1Diarios'"
+  },
+  {
+    "name": "datos.descriptoresCotizDmenos2Diarios",
+    "type": "java.lang.String",
+    "description": "A description for 'datos.descriptoresCotizDmenos2Diarios'"
   }
 ]}

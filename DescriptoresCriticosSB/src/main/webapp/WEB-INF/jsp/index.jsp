@@ -23,7 +23,7 @@
 <script type="text/javascript" src="js/javascript.js"></script>
 <script type="text/javascript">
 	$(window).on('load', function() {
-		var my_js_data = '<c:out value="${primero}"/>';
+		var my_js_data = '<c:out value="${primeraCargaPagina}"/>';
 		if (my_js_data) {
 			$('#anadirBorrarDescriptor').modal('show');
 		}
@@ -221,11 +221,11 @@ body {
 					<form>
 						<div class="form-group">
 							<input type="text" placeholder="Escoge el número de descriptor"
-								class="form-control" name="descriptor">
+								class="form-control" name="descriptor" required>
 						</div>
 						<div class="form-group">
-							<select class="form-control" name="diaCarga">
-								<option disabled selected>Selecciona el día de carga</option>
+							<select class="form-control" name="diaCarga" required>
+								<option value="">Selecciona el día de carga</option>
 								<option>Fundamenta D-1</option>
 								<option>Fundamenta D-2</option>
 								<option>Cotiz D-1</option>
@@ -234,11 +234,12 @@ body {
 								<option>Cotiz D+1</option>
 							</select>
 						</div>
-						<button type="submit" formaction="borrarVariables" class="btn btn-secondary">Cerrar</button>
+						<button type="submit" formaction="borrarVariables" class="btn btn-secondary" formnovalidate>Cerrar</button>
 						<button type="submit" formmethod="post"
-							formaction="anadir_borrar_descriptor" class="btn btn-primary">Guardar
+							formaction="anadir_borrar_descriptor" name="accion" value="guardar" class="btn btn-primary">Guardar
 							descriptor</button>
-						<button type="submit" class="btn btn-danger">Borrar
+						<button type="submit" formmethod="post" 
+							formaction="anadir_borrar_descriptor" name="accion" value="borrar" class="btn btn-danger">Borrar
 							descriptor</button>
 					</form>
 				</div>

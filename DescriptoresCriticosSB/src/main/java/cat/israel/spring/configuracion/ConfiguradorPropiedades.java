@@ -5,10 +5,14 @@ import java.util.List;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.validation.annotation.Validated;
 
 @Configuration
 @EnableConfigurationProperties
-@ConfigurationProperties(prefix="datos")
+@ConfigurationProperties
+@Validated
+@PropertySource(value= {"file:/C://Users/israe/Desktop/application.yaml"})
 public class ConfiguradorPropiedades {
 	
 	private List<String> descriptoresFundaD1;
