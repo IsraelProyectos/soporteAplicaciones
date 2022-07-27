@@ -51,7 +51,7 @@ public interface ICriticosCotizRepo extends JpaRepository<CriticosCotiz, Integer
 			+ "WHERE SUBSTR(TO_CHAR(FECHA),4) <> SUBSTR(ADD_MONTHS(TRUNC(SYSDATE), -2), 4) "
 			+ "AND SUBSTR(TO_CHAR(TRUNC(SYSDATE)),1,2) > '15' "
 			+ "ORDER BY CDDESCRIPTOR ASC ")
-	List<CriticosCotiz> findByCountCotiz(List<String> cotiz_Dmenos1Lab, List<String> cotiz_Dmenos1Dia, 
-										 List<String> cotiz_DDia, List<String> coti_Dmenos2Dia, 
-										 List<String> cotiz_mensual);
+	List<CriticosCotiz> findByCountCotiz(List<Integer> cotiz_Dmenos1Lab, List<Integer> cotiz_Dmenos1Dia, 
+										 List<Integer> cotiz_DDia, List<Integer> coti_Dmenos2Dia, 
+										 List<Integer> cotiz_mensual);
 }

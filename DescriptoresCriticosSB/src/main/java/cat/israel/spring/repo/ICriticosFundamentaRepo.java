@@ -1,6 +1,7 @@
 package cat.israel.spring.repo;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -73,6 +74,6 @@ public interface ICriticosFundamentaRepo extends JpaRepository<CriticosFundament
 			+ "                TRUNC (SYSDATE - 2) "
 			+ "        END)\r\n"
 			+ "ORDER BY CDDESCRIPTOR ASC ")
-	List<CriticosFundamenta> findByCountFunda(List<String> funda_D_1, List<String> funda_D_2);
+	List<CriticosFundamenta> findByCountFunda(List<Integer> funda_D_1, List<Integer> funda_D_2);
 
 }

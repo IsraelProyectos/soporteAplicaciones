@@ -3,67 +3,65 @@ package cat.israel.spring.configuracion;
 import java.util.List;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.context.annotation.PropertySource;
-import org.springframework.validation.annotation.Validated;
+import org.springframework.stereotype.Component;
 
-@Configuration
-@EnableConfigurationProperties
 @ConfigurationProperties
-@Validated
-@PropertySource(value= {"file:/C://Users/israe/Desktop/application.yaml"})
+@Component
+@PropertySource(value= {"file:/C://Users/israe/Desktop/descriptores.properties"})
+@RefreshScope
 public class ConfiguradorPropiedades {
 	
-	private List<String> descriptoresFundaD1;
-	private List<String> descriptoresFundaD2;
-	private List<String> descriptoresCotizDDiarios;
-	private List<String> descriptoresCotizDmenos1Laborables;
-	private List<String> descriptoresCotizDmenos1Diarios;
-	private List<String> descriptoresCotizDmenos2Diarios;
-	private List<String> descriptoresCotizMensual;
+	private List<Integer> FUNDAMENTA_D_1;
+	private List<Integer> FUNDAMENTA_D_2;
+	private List<Integer> COTIZ_D_MAS_1_DIARIOS;
+	private List<Integer> COTIZ_D_MENOS_1_LABORABLES;
+	private List<Integer> COTIZ_D_MENOS_1_DIARIOS;
+	private List<Integer> COTIZ_D_MENOS_2_DIARIOS;
+	private List<Integer> COTIZ_MENSUAL;
 	
-	public List<String> getDescriptoresFundaD1() {
-		return descriptoresFundaD1;
+	public List<Integer> getFUNDAMENTA_D_1() {
+		return FUNDAMENTA_D_1;
 	}
-	public void setDescriptoresFundaD1(List<String> descriptoresFundaD1) {
-		this.descriptoresFundaD1 = descriptoresFundaD1;
+	public void setFUNDAMENTA_D_1(List<Integer> fUNDAMENTA_D_1) {
+		FUNDAMENTA_D_1 = fUNDAMENTA_D_1;
 	}
-	public List<String> getDescriptoresFundaD2() {
-		return descriptoresFundaD2;
+	public List<Integer> getFUNDAMENTA_D_2() {
+		return FUNDAMENTA_D_2;
 	}
-	public void setDescriptoresFundaD2(List<String> descriptoresFundaD2) {
-		this.descriptoresFundaD2 = descriptoresFundaD2;
+	public void setFUNDAMENTA_D_2(List<Integer> fUNDAMENTA_D_2) {
+		FUNDAMENTA_D_2 = fUNDAMENTA_D_2;
 	}
-	public List<String> getDescriptoresCotizDDiarios() {
-		return descriptoresCotizDDiarios;
+	public List<Integer> getCOTIZ_D_MAS_1_DIARIOS() {
+		return COTIZ_D_MAS_1_DIARIOS;
 	}
-	public void setDescriptoresCotizDDiarios(List<String> descriptoresCotizDDiarios) {
-		this.descriptoresCotizDDiarios = descriptoresCotizDDiarios;
+	public void setCOTIZ_D_MAS_1_DIARIOS(List<Integer> cOTIZ_D_MAS_1_DIARIOS) {
+		COTIZ_D_MAS_1_DIARIOS = cOTIZ_D_MAS_1_DIARIOS;
 	}
-	public List<String> getDescriptoresCotizDmenos1Laborables() {
-		return descriptoresCotizDmenos1Laborables;
+	public List<Integer> getCOTIZ_D_MENOS_1_LABORABLES() {
+		return COTIZ_D_MENOS_1_LABORABLES;
 	}
-	public void setDescriptoresCotizDmenos1Laborables(List<String> descriptoresCotizDmenos1Laborables) {
-		this.descriptoresCotizDmenos1Laborables = descriptoresCotizDmenos1Laborables;
+	public void setCOTIZ_D_MENOS_1_LABORABLES(List<Integer> cOTIZ_D_MENOS_1_LABORABLES) {
+		COTIZ_D_MENOS_1_LABORABLES = cOTIZ_D_MENOS_1_LABORABLES;
 	}
-	public List<String> getDescriptoresCotizDmenos1Diarios() {
-		return descriptoresCotizDmenos1Diarios;
+	public List<Integer> getCOTIZ_D_MENOS_1_DIARIOS() {
+		return COTIZ_D_MENOS_1_DIARIOS;
 	}
-	public void setDescriptoresCotizDmenos1Diarios(List<String> descriptoresCotizDmenos1Diarios) {
-		this.descriptoresCotizDmenos1Diarios = descriptoresCotizDmenos1Diarios;
+	public void setCOTIZ_D_MENOS_1_DIARIOS(List<Integer> cOTIZ_D_MENOS_1_DIARIOS) {
+		COTIZ_D_MENOS_1_DIARIOS = cOTIZ_D_MENOS_1_DIARIOS;
 	}
-	public List<String> getDescriptoresCotizDmenos2Diarios() {
-		return descriptoresCotizDmenos2Diarios;
+	public List<Integer> getCOTIZ_D_MENOS_2_DIARIOS() {
+		return COTIZ_D_MENOS_2_DIARIOS;
 	}
-	public void setDescriptoresCotizDmenos2Diarios(List<String> descriptoresCotizDmenos2Diarios) {
-		this.descriptoresCotizDmenos2Diarios = descriptoresCotizDmenos2Diarios;
+	public void setCOTIZ_D_MENOS_2_DIARIOS(List<Integer> cOTIZ_D_MENOS_2_DIARIOS) {
+		COTIZ_D_MENOS_2_DIARIOS = cOTIZ_D_MENOS_2_DIARIOS;
 	}
-	public List<String> getDescriptoresCotizMensual() {
-		return descriptoresCotizMensual;
+	public List<Integer> getCOTIZ_MENSUAL() {
+		return COTIZ_MENSUAL;
 	}
-	public void setDescriptoresCotizMensual(List<String> descriptoresCotizMensual) {
-		this.descriptoresCotizMensual = descriptoresCotizMensual;
+	public void setCOTIZ_MENSUAL(List<Integer> cOTIZ_MENSUAL) {
+		COTIZ_MENSUAL = cOTIZ_MENSUAL;
 	}
 	
 	

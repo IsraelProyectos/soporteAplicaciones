@@ -212,10 +212,10 @@ body {
 				<div class="modal-header">
 					<h5 class="modal-title" id="anadirBorrarDescriptor">Añadir/Borrar
 						descriptor</h5>
-					<button type="button" class="close" data-dismiss="modal"
+					<!-- <button formmethod="post" formaction="borrarVariables" type="submit" class="close" data-dismiss="modal"
 						aria-label="Close">
 						<span aria-hidden="true">&times;</span>
-					</button>
+					</button> -->
 				</div>
 				<div class="modal-body">
 					<form>
@@ -226,12 +226,13 @@ body {
 						<div class="form-group">
 							<select class="form-control" name="diaCarga" required>
 								<option value="">Selecciona el día de carga</option>
-								<option>Fundamenta D-1</option>
+								<option>Cotiz D+1 Diarios</option>
+								<option>Cotiz D-2 Diarios</option>
 								<option>Fundamenta D-2</option>
-								<option>Cotiz D-1</option>
-								<option>Cotiz D-2</option>
-								<option>Cotiz D</option>
-								<option>Cotiz D+1</option>
+								<option>Cotiz D-1 Diarios</option>
+								<option>Fundamenta D-1</option>
+								<option>Cotiz D-1 Laborables</option>
+								<option>Cotiz mensual</option>
 							</select>
 						</div>
 						<button type="submit" formaction="borrarVariables" class="btn btn-secondary" formnovalidate>Cerrar</button>
