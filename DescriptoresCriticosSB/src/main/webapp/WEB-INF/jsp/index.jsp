@@ -172,7 +172,7 @@ body {
 						de carga</td>
 				</tr>
 				<c:choose>
-					<c:when test="${descriptores != null}">
+					<c:when test="${not empty descriptores}">
 						<c:forEach var="descriptor" items="${descriptores}">
 							<tr>
 								<td

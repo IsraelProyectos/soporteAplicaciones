@@ -9,16 +9,13 @@ import cat.israel.spring.servicios.LlenarTXT;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.core.exc.StreamReadException;
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DatabindException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.dataformat.yaml.YAMLMapper;
 
 import cat.israel.spring.configuracion.ConfiguradorPropiedades;
 import cat.israel.spring.model.CriticosCotiz;
@@ -43,6 +40,14 @@ public class DescriptoresCriticosController {
 	private AgregarBorrarDescriptor ab;
 	 
 
+	@GetMapping("/")
+    public String index(Model model) throws IOException {
+		LlenarTXT gestionTXT = new LlenarTXT();
+		gestionTXT.reiniciarTXT();
+		model.addAttribute("txt", gestionTXT.mostrarTXT());
+        return "index";
+    }
+	
 	@RequestMapping(value="/listar", method = RequestMethod.POST)
 	public String listarDescriptores(@RequestParam("esquema") String tabla, Model model) throws StreamReadException, DatabindException, IOException {
 
