@@ -243,7 +243,7 @@ public class AgregarBorrarDescriptor {
 				
 				List<Integer> descriptoresConAnadido1 = cp.getCOTIZ_D_MAS_1_DIARIOS();
 				//System.out.println("antes de borrar: "+descriptoresConAnadido1);
-				descriptoresConAnadido1.remove(new Integer(descriptor));
+				descriptoresConAnadido1.remove(Integer.parseInt(descriptor));
 				//System.out.println("despues de borrar"+descriptoresConAnadido1);
 				for (int i = 0; i < descriptoresConAnadido1.size(); i++) {
 					if (i==0) {
