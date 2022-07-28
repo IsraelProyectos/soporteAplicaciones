@@ -28,6 +28,16 @@
 			$('#anadirBorrarDescriptor').modal('show');
 		}
 	});
+	
+	function copyToClipboard() {
+		var codigoACopiar = document.getElementById('copiarPortapapeles');
+		var seleccion = document.createRange();
+		seleccion.selectNodeContents(codigoACopiar);
+		window.getSelection().removeAllRanges();
+		window.getSelection().addRange(seleccion);
+		var res = document.execCommand('copy');
+		window.getSelection().removeRange(seleccion);
+	}
 </script>
 <style type="text/css">
 body {
@@ -262,11 +272,11 @@ body {
 					
 					<button type="button" data-dismiss="modal" class="btn btn-secondary">Cerrar</button>
 					
-					<button type="submit" class="btn btn-success">Copiar al portapapeles</button>
+					<button onclick="copyToClipboard()" type="submit" class="btn btn-success">Copiar al portapapeles</button>
 
 					
 				</div>
-				<div class="modal-body">
+				<div id="copiarPortapapeles" class="modal-body">
 				<c:choose>
 					<c:when test="${txt != null}">
 						<c:forEach var="texto" items="${txt}">

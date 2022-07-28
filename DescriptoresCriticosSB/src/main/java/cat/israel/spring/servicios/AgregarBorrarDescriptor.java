@@ -261,7 +261,7 @@ public class AgregarBorrarDescriptor {
 			
 			break;
 		case "Cotiz D-2 Diarios":
-			
+			//TODO hacer los borrados de los demas dias
 			break;
 		case "Fundamenta D-2":
 			
