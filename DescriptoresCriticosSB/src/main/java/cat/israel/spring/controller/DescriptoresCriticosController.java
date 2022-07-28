@@ -48,7 +48,6 @@ public class DescriptoresCriticosController {
 
 		switch (tabla) {
 		case "funda":
-			//TODO viene nulo el configurador de propiedades
 			System.out.println(cp.getFUNDAMENTA_D_2());
 			
 			List<CriticosFundamenta> datosBBDDfunda = fundamentaRepo.findByCountFunda(cp.getFUNDAMENTA_D_1(),cp.getFUNDAMENTA_D_2());
@@ -68,7 +67,7 @@ public class DescriptoresCriticosController {
 														                    cp.getCOTIZ_D_MAS_1_DIARIOS(), 
 														                    cp.getCOTIZ_D_MENOS_2_DIARIOS(), 
 														                    cp.getCOTIZ_MENSUAL());
-
+			//TODO no se pq coge los valores de funda anteriores
 			LlenarTXT lTXT2 = new LlenarTXT();
 			lTXT2.llenarTXTcotiz(datosBBDDcotiz);
 			model.addAttribute("txt", lTXT2.mostrarTXT());

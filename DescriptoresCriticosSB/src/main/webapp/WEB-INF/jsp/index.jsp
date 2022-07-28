@@ -254,20 +254,30 @@ body {
 		data-backdrop="static" data-keyboard="false">
 		<div class="modal-dialog" style="max-width: 70% !important;">
 			<div class="modal-content">
+
+					
+
 				<div class="modal-header">
-					<h5 class="modal-title" id="extraerDatos">Mail de descriptores</h5>
+				<h5 class="modal-title" id="extraerDatos">Mail de descriptores</h5>
+					
 					<button type="button" data-dismiss="modal" class="btn btn-secondary">Cerrar</button>
-					<br>
+					
 					<button type="submit" class="btn btn-success">Copiar al portapapeles</button>
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
+
+					
 				</div>
 				<div class="modal-body">
-					<c:forEach var="texto" items="${txt}">
-						<c:out value="${texto}" /><br><br>
-					</c:forEach>
+				<c:choose>
+					<c:when test="${txt != null}">
+						<c:forEach var="texto" items="${txt}">
+							<c:out value="${texto}" /><br><br>
+						</c:forEach>
+					</c:when>
+					<c:otherwise>
+						<c:out value="No se ha ejecutado ninguna busqueda aun"></c:out>
+					</c:otherwise>
+				</c:choose>
+					
 				</div>
 			</div>
 		</div>

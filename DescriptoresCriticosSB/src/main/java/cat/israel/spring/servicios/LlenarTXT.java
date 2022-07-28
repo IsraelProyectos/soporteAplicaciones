@@ -33,7 +33,7 @@ public class LlenarTXT {
 			file = new ClassPathResource("static/txt_criticos/criticos_funda.txt").getFile();
 			FileWriter fw = new FileWriter(file);
 			BufferedWriter bw = new BufferedWriter(fw);
-			
+
 			if (!criticosFunda.isEmpty()) {
 				Map<String, List<Integer>> mapaDescriptores = new HashMap<>();
 				List<Integer> descriptores = new ArrayList<Integer>();
@@ -66,6 +66,7 @@ public class LlenarTXT {
 					bw.write(" -"+filaDescriptor + ";");
 				}
 			} else {
+				bw.write("Fundamenta:;");
 				bw.write("Todo OK");
 			}
 			bw.close();
