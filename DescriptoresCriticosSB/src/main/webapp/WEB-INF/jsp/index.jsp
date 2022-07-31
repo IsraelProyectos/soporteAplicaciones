@@ -28,49 +28,8 @@
 			$('#anadirBorrarDescriptor').modal('show');
 		}
 	});
-	
-	function copyToClipboard() {
-		var codigoACopiar = document.getElementById('copiarPortapapeles');
-		var seleccion = document.createRange();
-		seleccion.selectNodeContents(codigoACopiar);
-		window.getSelection().removeAllRanges();
-		window.getSelection().addRange(seleccion);
-		var res = document.execCommand('copy');
-		window.getSelection().removeRange(seleccion);
-	}
 </script>
-<style type="text/css">
-body {
-	background-color: #696969;
-}
-
-#header1 {
-	position: fixed;
-	top: 0;
-	width: 100%;
-	font-size: 20px;
-	color: #FFFFFF;
-}
-
-#header2 {
-	position: fixed;
-	width: 100%;
-}
-
-#content {
-	width: 100%;
-}
-
-.cuadradoNaranja {
-	width: 0.5em;
-	background-color: orange;
-}
-
-.cuadradoRojo {
-	width: 0.5em;
-	background-color: #E53131;
-}
-</style>
+<link rel="stylesheet" type="text/css" href="css/css.css" />
 </head>
 <body style="background-color: #fcfce3">
 	<div id="header1" style="text-align: center">
@@ -87,8 +46,6 @@ body {
 				<button formaction="listar" onClick="barraBusqueda('cotiz')"
 					type="submit" name="esquema" value="cotiz" class="btn btn-success">Críticos
 					de cotizaciones</button>
-				<!-- <button formtarget="_blank" formaction="mostrar" type="submit"
-					class="btn btn-primary">Extraer datos para mail</button> -->
 				<button type="button" class="btn btn-primary" data-toggle="modal"
 					data-target="#extraerDatos">Extraer datos para mail</button>
 				<br> <br>
@@ -254,7 +211,7 @@ body {
 							descriptor</button>
 					</form>
 				</div>
-				<div style="color: red;">
+				<div style="color: ${colorMensaje}; text-align: center;">
 					<c:out value="${mensajeIntroduccion}" />
 				</div>
 			</div>
@@ -272,7 +229,7 @@ body {
 					
 					<button type="button" data-dismiss="modal" class="btn btn-secondary">Cerrar</button>
 					
-					<button onclick="copyToClipboard()" type="submit" class="btn btn-success">Copiar al portapapeles</button>
+					<button onclick="copiarAportapapeles()" type="submit" class="btn btn-success">Copiar al portapapeles</button>
 
 					
 				</div>

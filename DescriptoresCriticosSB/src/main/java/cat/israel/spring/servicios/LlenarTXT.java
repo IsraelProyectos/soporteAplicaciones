@@ -37,7 +37,7 @@ public class LlenarTXT {
 					String fechaFormateada = fecha.format(cf.getFechaInicio());
 					String key = cf.getNomOrigen() + ";" + fechaFormateada + ";" + cf.getNomPais();
 					if (mapaDescriptores.containsKey(key)) {
-						descriptores.add(cf.getCddescriptor());
+						mapaDescriptores.get(key).add(cf.getCddescriptor());
 					} else {
 						descriptores = new ArrayList<>();
 						descriptores.add(cf.getCddescriptor());
@@ -92,7 +92,7 @@ public class LlenarTXT {
 					String fechaFormateada = fecha.format(cc.getFechaInicio());
 					String key = cc.getNomOrigen() + ";" + fechaFormateada + ";" + cc.getNomPais();
 					if (mapaDescriptores.containsKey(key)) {
-						descriptores.add(cc.getCddescriptor());
+						mapaDescriptores.get(key).add(cc.getCddescriptor());
 					} else {
 						descriptores = new ArrayList<>();
 						descriptores.add(cc.getCddescriptor());

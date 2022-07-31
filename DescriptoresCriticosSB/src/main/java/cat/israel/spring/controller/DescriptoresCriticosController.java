@@ -72,7 +72,6 @@ public class DescriptoresCriticosController {
 														                    cp.getCOTIZ_D_MAS_1_DIARIOS(), 
 														                    cp.getCOTIZ_D_MENOS_2_DIARIOS(), 
 														                    cp.getCOTIZ_MENSUAL());
-			//TODO no se pq coge los valores de funda anteriores
 			LlenarTXT lTXT2 = new LlenarTXT();
 			lTXT2.llenarTXTcotiz(datosBBDDcotiz);
 			model.addAttribute("txt", lTXT2.mostrarTXT());
@@ -91,10 +90,14 @@ public class DescriptoresCriticosController {
 	public String AñadirBorrarDescriptor(@RequestParam("descriptor") String descriptor, @RequestParam(name="diaCarga") String diaCarga, @RequestParam("accion") String tipoAccion, Model model) throws StreamReadException, DatabindException, IOException {
 		switch (tipoAccion) {
 		case "guardar":
-			model.addAttribute("mensajeIntroduccion", ab.guardar(descriptor, diaCarga, cp));
+			String [] mensajeGuardar = ab.guardar(descriptor, diaCarga, cp).split(";");
+			model.addAttribute("mensajeIntroduccion", mensajeGuardar[0]);
+			model.addAttribute("colorMensaje", mensajeGuardar[1]);
 			break;
 		case "borrar":
-			model.addAttribute("mensajeIntroduccion", ab.borrar(descriptor, diaCarga, cp));
+			String [] mensajeBorrar = ab.borrar(descriptor, diaCarga, cp).split(";");
+			model.addAttribute("mensajeIntroduccion", mensajeBorrar[0]);
+			model.addAttribute("colorMensaje", mensajeBorrar[1]);
 			break;
 		default:
 			break;

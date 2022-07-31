@@ -29,3 +29,12 @@ $(document).ready(function() {
     }); 
 });
 
+function copiarAportapapeles() {
+	var copiarTexto = document.getElementById('copiarPortapapeles');
+	var seleccion = document.createRange();
+	seleccion.selectNodeContents(copiarTexto);
+	window.getSelection().removeAllRanges();
+	window.getSelection().addRange(seleccion);
+	var res = document.execCommand('copy');
+	window.getSelection().removeRange(seleccion);
+}
