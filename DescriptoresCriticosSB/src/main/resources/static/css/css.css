@@ -1,0 +1,30 @@
+body {
+	background-color: #696969;
+}
+
+#header1 {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	font-size: 20px;
+	color: #FFFFFF;
+}
+
+#header2 {
+	position: fixed;
+	width: 100%;
+}
+
+#content {
+	width: 100%;
+}
+
+.cuadradoNaranja {
+	width: 0.5em;
+	background-color: orange;
+}
+
+.cuadradoRojo {
+	width: 0.5em;
+	background-color: #E53131;
+}
